@@ -10,6 +10,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BiwenSettingsMutiNodeTest.Node1", "BiwenSettingsMutiNodeTest.Node1\BiwenSettingsMutiNodeTest.Node1.csproj", "{9DD3DC2E-A011-43C9-97E5-8B88A43B8284}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{33F17018-CC86-455A-9AC3-254BC2EFA9F6}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
