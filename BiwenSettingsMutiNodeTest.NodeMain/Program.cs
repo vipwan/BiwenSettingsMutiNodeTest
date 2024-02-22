@@ -30,11 +30,11 @@ builder.Services.AddBiwenSettings(o =>
 
     //主节点开启通知
     o.NotifyOption.IsNotifyEnable = true;
-    o.NotifyOption.EndpointHosts = new[]
-    {
+    o.NotifyOption.EndpointHosts =
+    [
         "http://localhost:5041",
         "http://localhost:5042" //消费节点
-    };
+    ];
 });
 
 
