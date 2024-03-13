@@ -22,7 +22,7 @@ builder.Services.AddBiwenSettings(o =>
     o.AutoFluentValidationOption.Enable = true;
     o.UseEncryption<Biwen.Settings.Encryption.EmptyEncryptionProvider>();
     o.ProjectId = "BiwenSettingsMutiNodeTest";
-    o.HasPermission = (ctx) => true;//直接给予修改的权限.
+    o.PermissionValidator = (ctx) => true;//直接给予修改的权限.
     o.UseStoreOfEFCore(options =>
     {
         options.DbContextType = typeof(StoreDbContext);

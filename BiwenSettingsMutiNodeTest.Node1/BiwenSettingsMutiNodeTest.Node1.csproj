@@ -6,7 +6,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.2" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.3" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\Biwen.Settings.MutiNodeTest.Shared\BiwenSettingsMutiNodeTest.Shared.csproj" />
