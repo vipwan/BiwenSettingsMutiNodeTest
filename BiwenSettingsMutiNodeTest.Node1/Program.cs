@@ -35,11 +35,8 @@ builder.Services.AddBiwenSettings(o =>
 
 var app = builder.Build();
 
-app.UseBiwenSettings();
-
-
 //消费节点需配置通知路由
-app.MapBiwenSettingApi("biwen-settings/api", true);
+app.UseBiwenSettings("biwen-settings/api", true);
 
 
 //拉取配置

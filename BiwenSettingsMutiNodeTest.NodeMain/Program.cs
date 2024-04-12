@@ -1,4 +1,4 @@
-using BiwenSettingsMutiNodeTest.Shared.Settings;
+ï»¿using BiwenSettingsMutiNodeTest.Shared.Settings;
 using Biwen.Settings;
 using BiwenSettingsMutiNodeTest.Shared;
 using Microsoft.EntityFrameworkCore;
@@ -22,32 +22,28 @@ builder.Services.AddBiwenSettings(o =>
     o.AutoFluentValidationOption.Enable = true;
     o.UseEncryption<Biwen.Settings.Encryption.EmptyEncryptionProvider>();
     o.ProjectId = "BiwenSettingsMutiNodeTest";
-    o.PermissionValidator = (ctx) => true;//Ö±½Ó¸øÓèÐÞ¸ÄµÄÈ¨ÏÞ.
+    o.PermissionValidator = (ctx) => true;//ç›´æŽ¥ç»™äºˆä¿®æ”¹çš„æƒé™.
     o.UseStoreOfEFCore(options =>
     {
         options.DbContextType = typeof(StoreDbContext);
     });
 
-    //Ö÷½Úµã¿ªÆôÍ¨Öª
+    //ä¸»èŠ‚ç‚¹å¼€å¯é€šçŸ¥
     o.NotifyOption.IsNotifyEnable = true;
     o.NotifyOption.EndpointHosts =
     [
         "http://localhost:5041",
-        "http://localhost:5042" //Ïû·Ñ½Úµã
+        "http://localhost:5042" //æ¶ˆè´¹èŠ‚ç‚¹
     ];
 });
 
 
 var app = builder.Build();
 
-app.UseBiwenSettings();
+//ä¸»è¦èŠ‚ç‚¹æ— éœ€é…ç½®é€šçŸ¥è·¯ç”±
+app.UseBiwenSettings("biwen-settings/api", false);
 
-
-//Ö÷Òª½ÚµãÎÞÐèÅäÖÃÍ¨ÖªÂ·ÓÉ
-app.MapBiwenSettingApi("biwen-settings/api", false);
-
-
-//À­È¡ÅäÖÃ
+//æ‹‰å–é…ç½®
 app.MapGet("/", (GitHubSetting setting) =>
 {
     return Results.Json(setting);
