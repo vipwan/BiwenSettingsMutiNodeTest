@@ -1,4 +1,4 @@
-using BiwenSettingsMutiNodeTest.Shared.Settings;
+ï»¿using BiwenSettingsMutiNodeTest.Shared.Settings;
 using Biwen.Settings;
 using BiwenSettingsMutiNodeTest.Shared;
 using Microsoft.EntityFrameworkCore;
@@ -22,7 +22,7 @@ builder.Services.AddBiwenSettings(o =>
     o.AutoFluentValidationOption.Enable = true;
     o.UseEncryption<Biwen.Settings.Encryption.EmptyEncryptionProvider>();
     o.ProjectId = "BiwenSettingsMutiNodeTest";
-    o.PermissionValidator = (ctx) => false;//×Ó½ÚµãÎÞÐèÐÞ¸ÄµÄÈ¨ÏÞ.
+    o.PermissionValidator = (ctx) => false;//å­èŠ‚ç‚¹æ— éœ€ä¿®æ”¹çš„æƒé™.
     o.UseStoreOfEFCore(options =>
     {
         options.DbContextType = typeof(StoreDbContext);
@@ -38,11 +38,11 @@ var app = builder.Build();
 app.UseBiwenSettings();
 
 
-//Ïû·Ñ½ÚµãÐèÅäÖÃÍ¨ÖªÂ·ÓÉ
+//æ¶ˆè´¹èŠ‚ç‚¹éœ€é…ç½®é€šçŸ¥è·¯ç”±
 app.MapBiwenSettingApi("biwen-settings/api", true);
 
 
-//À­È¡ÅäÖÃ
+//æ‹‰å–é…ç½®
 app.MapGet("/", (GitHubSetting setting) =>
 {
     return Results.Json(setting);
