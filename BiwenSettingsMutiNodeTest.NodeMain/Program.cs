@@ -25,10 +25,7 @@ builder.Services.AddBiwenSettings(o =>
     o.UseEncryption<Biwen.Settings.Encryption.EmptyEncryptionProvider>();
     o.ProjectId = "BiwenSettingsMutiNodeTest";
     o.PermissionValidator = (ctx) => true;//直接给予修改的权限.
-    o.UseStoreOfEFCore(options =>
-    {
-        options.DbContextType = typeof(StoreDbContext);
-    });
+    o.UseStoreOfEFCore<StoreDbContext>();
 
     //主节点开启通知
     o.NotifyOptions.IsNotifyEnable = true;
