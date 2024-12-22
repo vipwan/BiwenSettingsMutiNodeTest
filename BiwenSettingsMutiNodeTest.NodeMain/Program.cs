@@ -20,11 +20,14 @@ builder.Services.AddBiwenSettings(o =>
     //~/biwen-settings
     o.Route = "biwen-settings";
 
+    o.MapNotifyEndpoint = false;
+    o.ApiPrefix = "biwen-settings/api";
+
     o.UseCacheOfMemory();
     o.AutoFluentValidationOption.Enable = true;
     o.UseEncryption<Biwen.Settings.Encryption.EmptyEncryptionProvider>();
     o.ProjectId = "BiwenSettingsMutiNodeTest";
-    o.PermissionValidator = (ctx) => true;//直接给予修改的权限.
+    o.PermissionValidator = (ctx) => Task.FromResult(true);//直接给予修改的权限.
     o.UseStoreOfEFCore<StoreDbContext>();
 
     //主节点开启通知
@@ -42,7 +45,7 @@ builder.Configuration.AddBiwenSettingConfiguration(builder.Services, true);
 var app = builder.Build();
 
 //主要节点无需配置通知路由
-app.UseBiwenSettings("biwen-settings/api", false);
+app.UseBiwenSettings();
 
 //拉取配置,可以直接注入T或者使用IOptions<T>
 app.MapGet("/", (

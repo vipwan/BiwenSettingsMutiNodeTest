@@ -1,5 +1,5 @@
 ﻿using Biwen.Settings.Domains;
-using Biwen.Settings.SettingManagers.EFCore;
+using Biwen.Settings.SettingStores.EFCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace BiwenSettingsMutiNodeTest.Shared;
