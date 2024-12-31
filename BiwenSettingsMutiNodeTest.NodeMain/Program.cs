@@ -20,8 +20,9 @@ builder.Services.AddBiwenSettings(o =>
     //~/biwen-settings
     o.Route = "biwen-settings";
 
-    o.MapNotifyEndpoint = false;
-    o.ApiPrefix = "biwen-settings/api";
+    o.ApiOptions.ApiEnabled = true;
+    o.ApiOptions.MapNotifyEndpoint = false;
+    o.ApiOptions.ApiPrefix = "biwen-settings/api";
 
     o.UseCacheOfMemory();
     o.AutoFluentValidationOption.Enable = true;
